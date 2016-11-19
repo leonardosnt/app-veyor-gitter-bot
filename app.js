@@ -51,7 +51,7 @@ function replaceVariables(text) {
   var match = text.match(/\$(.*?)\$/g)
   if (match) {
     match.forEach(v => {
-      var variableName = v.substring(1, v.length - 1); // Remove '%%'
+      var variableName = v.substring(1, v.length - 1); // Remove '$'
       text = text.replace(v, process.env[variableName]);
     })
   }
