@@ -29,7 +29,7 @@ function run() {
       console.error(`Variable ${v} is not defined`);
       process.exit();
     })
-    
+
   var roomId = process.env['GITTER_BOT_ROOM_ID'];
   var accessToken = process.env['GITTER_BOT_ACCESS_TOKEN'];
   var message = process.env['GITTER_BOT_MESSAGE'];
@@ -49,7 +49,7 @@ function run() {
   request.write(JSON.stringify({ text: replaceVariables(message) }));
   request.end();
 
-  // Replace ENVIRORMENT VARIABLES, e.g. $PATH$, $GITTER_BOT_MESSAGE$
+  // Replace ENVIRONMENT VARIABLES, e.g. $PATH$, $GITTER_BOT_MESSAGE$
   function replaceVariables(text) {
     var match = text.match(/\$(.*?)\$/g)
     if (match) {
