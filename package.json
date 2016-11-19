@@ -1,0 +1,24 @@
+{
+  "name": "app-veyor-gitter-bot",
+  "version": "1.0.0",
+  "description": "AppVeyor Gitter Build Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonardosnt/app-veyor-gitter-bot.git"
+  },
+  "keywords": [
+    "appveyor",
+    "gitter",
+    "bot"
+  ],
+  "author": "leonardosnt",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/leonardosnt/app-veyor-gitter-bot/issues"
+  },
+  "homepage": "https://github.com/leonardosnt/app-veyor-gitter-bot#readme"
+}
