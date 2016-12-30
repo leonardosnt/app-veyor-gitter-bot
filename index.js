@@ -19,16 +19,15 @@
 'use strict'
 
 function run() {
-  var https = require('https');
-  var process = require('process');
-
-  // Ensures that the required variables must be defined
+  // Ensures that all required variables must be defined
   ['GITTER_BOT_ROOM_ID', 'GITTER_BOT_ACCESS_TOKEN', 'GITTER_BOT_MESSAGE']
     .filter(v => !process.env[v])
     .forEach(v => {
       console.error(`Variable ${v} is not defined`);
       process.exit();
     })
+
+   var https = require('https');
 
   var roomId = process.env['GITTER_BOT_ROOM_ID'];
   var accessToken = process.env['GITTER_BOT_ACCESS_TOKEN'];
@@ -51,14 +50,13 @@ function run() {
 
   // Replace ENVIRONMENT VARIABLES, e.g. $PATH$, $GITTER_BOT_MESSAGE$
   function replaceVariables(text) {
-    var match = text.match(/\$(.*?)\$/g)
-    if (match) {
-      match.forEach(v => {
-        var variableName = v.substring(1, v.length - 1); // Remove '$'
-        text = text.replace(v, process.env[variableName]);
-      })
-    }
-    return text;
+    return text.replace(/(\$(.*?)\$)/g, function (match, variable, variableName) {
+      var variableValue = process.env[variableName];
+      if (variableValue) {
+        return variableValue;
+      }
+      return match;
+    });
   }
 }
 

@@ -13,3 +13,6 @@ _E.g $APPVEYOR_REPO_COMMIT$, $APPVEYOR_BUILD_VERSION$_
 
 ### Result:
 ![](http://i.imgur.com/PNYIggQ.png)
+
+### Live Example
+https://gitter.im/uEssentials/BuildLog
